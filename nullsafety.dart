@@ -233,9 +233,39 @@ void mixedExample2() {
   }
 }
 
-
-
-
-
-
 // ------------------------ Intermediate Level--------------------
+
+// ------------------ Intermediate Example 1 ------------------
+// Q1: Create a Person class with String? name and int? age.
+// If name != null && age != null → print "Name: <name>, Age: <age>".
+// Otherwise → print "Incomplete data".
+// Example: Person? p = Person(name: "Ali", age: 20);
+
+class Person {
+  String? name;
+  int? age;
+
+  Person({this.name, this.age});
+}
+
+void main() {
+  //Example one both values are present
+  Person p1 = Person(name: 'Hassan', age: 20);
+  checkPerson(p1);
+
+  //Example two string has name or int are preset
+  Person p2 = Person(name: 'Abdullah');
+  checkPerson(p2);
+
+  //Example three both things are not present
+  Person p3 = Person();
+  checkPerson(p3);
+}
+
+void checkPerson(Person person) {
+  if (person.name != null && person.age != null) {
+    print('Name ${person.name}, Age ${person.age}');
+  } else {
+    print('Incomplete data');
+  }
+}
