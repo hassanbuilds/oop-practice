@@ -232,3 +232,10 @@ void mixedExample2() {
     print('Job status unknown');
   }
 }
+
+
+
+
+
+
+// ------------------------ Intermediate Level--------------------
