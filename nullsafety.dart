@@ -322,10 +322,16 @@ void main3() {
     "Sara": null,
     "Ahmed": "78976",
   };
-  printPhoneNumber(phoneBook, "Ali"); // should print Number: 12345
-  printPhoneNumber(phoneBook, "Sara"); // should print No phone number available
-  printPhoneNumber(phoneBook, "Ahmed"); // should print Number: 67890
-  printPhoneNumber(phoneBook, "John"); // should print No phone number available
+  printPhoneNumber(phoneBook, "Hassan"); // should print Number: 12345
+  printPhoneNumber(
+    phoneBook,
+    "Talha",
+  ); // should print No phone number available
+  printPhoneNumber(phoneBook, "Osman"); // should print Number: 67890
+  printPhoneNumber(
+    phoneBook,
+    "Zohan",
+  ); // should print No phone number available
 }
 
 void printPhoneNumber(Map<String, String?> book, String name) {
