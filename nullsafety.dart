@@ -269,3 +269,115 @@ void checkPerson(Person person) {
     print('Incomplete data');
   }
 }
+
+//Output:
+//Name: Ali, Age: 20
+//Incomplete data
+//Incomplete data
+
+// ------------------ Intermediate Example 2 ------------------
+// Q2: Use double? gpa and bool? graduated.
+// If gpa != null && graduated == true → print "Graduated with GPA <gpa>".
+// If gpa != null && graduated == false → print "Still studying, GPA <gpa>".
+// If gpa == null → print "GPA not available".
+// Example: double? gpa; bool? graduated;
+
+void intermediateExample2() {
+  //Example 1: GPA avaliable and graduated
+  double? gpa1 = 3.41;
+  bool? graduated1 = true;
+  checkStudentStatus(gpa1, graduated1);
+
+  // Example 2: GPA avaliable but not graduated
+  double? gpa2 = 2.54;
+  bool? graduated2 = false;
+  checkStudentStatus(gpa2, graduated2);
+
+  //Example 3: GPA not avaliable
+  double? gpa3;
+  bool? graduated3; // dosent matter because gpa is null
+  checkStudentStatus(gpa3, graduated3);
+}
+
+checkStudentStatus(double? gpa, bool? graduated) {
+  if (gpa != null && graduated == true) {
+    print('Graduated with GPA $gpa');
+  } else if (gpa != null && graduated == false) {
+    print('Still studying, GPA $gpa');
+  } else {
+    print('GPA not avaliable');
+  }
+}
+
+// ------------------ Intermediate Example 3 ------------------
+// Q3: Use Map<String, String?> phoneBook = {"Ali": "12345", "Sara": null, "Ahmed": "67890"}.
+// Write a function that prints the phone number for a given name.
+// If number != null → print "Number: <number>".
+// Otherwise → print "No phone number available".
+// Example: phoneBook["Sara"];
+
+void main3() {
+  Map<String, String?> phoneBook = {
+    "Ali": "12345",
+    "Sara": null,
+    "Ahmed": "78976",
+  };
+  printPhoneNumber(phoneBook, "Ali"); // should print Number: 12345
+  printPhoneNumber(phoneBook, "Sara"); // should print No phone number available
+  printPhoneNumber(phoneBook, "Ahmed"); // should print Number: 67890
+  printPhoneNumber(phoneBook, "John"); // should print No phone number available
+}
+
+void printPhoneNumber(Map<String, String?> book, String name) {
+  String? number = book[name]; // get value for the given key
+  if (number != null) {
+    print('Number $number');
+  } else {
+    print('No phone number available');
+  }
+}
+
+// ------------------ Intermediate Example 4 ------------------
+// Q4: Use String? message.
+// If message != null → print "Message: <message>".
+// Otherwise → print "No message provided".
+// Example: String? message;
+
+void intermediateExample4() {
+  //Example 1: When message is not null
+  String? message = 'Hello buddy';
+  checkMessage(message);
+
+  //Example 2 :
+  String? message2;
+  checkMessage(message2);
+}
+
+void checkMessage(String? message) {
+  if (message != null) {
+    print('Message: $message');
+  } else {
+    print('No message provided');
+  }
+}
+
+// ------------------ Intermediate Example 5 ------------------
+// Q5: Create a function safeDivide(int a, int b).
+// If b != 0 → return a / b.
+// Otherwise → return null.
+// Example: safeDivide(10, 0);
+
+void main1() {
+  int a = 100;
+  int b = 10;
+  var result = safeDivide(a, b);
+  print(result);
+}
+
+double? safeDivide(a, b) {
+  if (b != 0) {
+    return a / b;
+  } else {
+    return null;
+  }
+}
