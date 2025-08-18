@@ -82,18 +82,6 @@ class Student {
 // Q2: Create a class BankAccount with fields: accountHolder (String), balance (double).
 // Add methods deposit(double amount) and withdraw(double amount).
 // Withdraw should check if balance is sufficient, otherwise print "Insufficient balance".
-//
-// Example:
-// BankAccount("Ali", 1000).deposit(500);   // Balance = 1500
-// BankAccount("Ali", 1500).withdraw(2000); // "Insufficient balance"
-
-void main4() {
-  BankAccount user1 = BankAccount('Hassan', 50000);
-  user1.deposit(15530);
-
-  BankAccount user2 = BankAccount('Zohan', 15000);
-  user2.deposit(22021);
-}
 
 class BankAccount {
   String accountHolder;
@@ -103,23 +91,37 @@ class BankAccount {
 
   void deposit(double amount) {
     balance += amount;
-    print('amount deposit $amount. New balance $balance');
+    print('Amount deposited: $amount. New balance: $balance');
   }
 
-  void withdrawn(double amount) {
+  void withdraw(double amount) {
     if (amount <= balance) {
       balance -= amount;
-      print("$amount withdrawn. Remaining balance: $balance");
+      print('$amount withdrawn. Remaining balance: $balance');
     } else {
-      print("Insufficient balance");
+      print('Insufficient balance');
     }
   }
+}
+
+void main4() {
+  BankAccount user1 = BankAccount('Hassan', 50000);
+  user1.deposit(15530);
+  user1.withdraw(20000);
+  user1.withdraw(70000);
+
+  BankAccount user2 = BankAccount('Zohan', 15000);
+  user2.deposit(22021);
+  user2.withdraw(10000);
 }
 
 
 
 
+
 //----------------- Advanced Level-------------------------
+
+
 
 // ------------------ Advanced Example 1 ------------------
 // Q1: Create a class Car with fields: brand, model, year (nullable int).
