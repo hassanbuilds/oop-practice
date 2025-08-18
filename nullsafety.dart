@@ -387,3 +387,9 @@ double? safeDivide(a, b) {
     return null;
   }
 }
+
+
+
+
+
+//---------------------- Advanced level ------------------------------
