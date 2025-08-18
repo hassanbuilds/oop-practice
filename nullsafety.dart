@@ -233,9 +233,9 @@ void mixedExample2() {
   }
 }
 
-// ------------------------ Intermediate Level--------------------
+// ------------------------ Intermediate Level & Advanced level --------------------
 
-// ------------------ Intermediate Example 1 ------------------
+// ------------------ Intermediate Level & Advanced level  1 ------------------
 // Q1: Create a Person class with String? name and int? age.
 // If name != null && age != null → print "Name: <name>, Age: <age>".
 // Otherwise → print "Incomplete data".
@@ -275,7 +275,7 @@ void checkPerson(Person person) {
 //Incomplete data
 //Incomplete data
 
-// ------------------ Intermediate Example 2 ------------------
+// ------------------Intermediate Level & Advanced level  2 ------------------
 // Q2: Use double? gpa and bool? graduated.
 // If gpa != null && graduated == true → print "Graduated with GPA <gpa>".
 // If gpa != null && graduated == false → print "Still studying, GPA <gpa>".
@@ -309,7 +309,7 @@ checkStudentStatus(double? gpa, bool? graduated) {
   }
 }
 
-// ------------------ Intermediate Example 3 ------------------
+// ------------------Intermediate Level & Advanced level  3 ------------------
 // Q3: Use Map<String, String?> phoneBook = {"Ali": "12345", "Sara": null, "Ahmed": "67890"}.
 // Write a function that prints the phone number for a given name.
 // If number != null → print "Number: <number>".
@@ -343,7 +343,7 @@ void printPhoneNumber(Map<String, String?> book, String name) {
   }
 }
 
-// ------------------ Intermediate Example 4 ------------------
+// ------------------Intermediate Level & Advanced level  4 ------------------
 // Q4: Use String? message.
 // If message != null → print "Message: <message>".
 // Otherwise → print "No message provided".
@@ -367,7 +367,7 @@ void checkMessage(String? message) {
   }
 }
 
-// ------------------ Intermediate Example 5 ------------------
+// ------------------ Intermediate Level & Advanced level  5 ------------------
 // Q5: Create a function safeDivide(int a, int b).
 // If b != 0 → return a / b.
 // Otherwise → return null.
@@ -387,9 +387,3 @@ double? safeDivide(a, b) {
     return null;
   }
 }
-
-
-
-
-
-//---------------------- Advanced level ------------------------------
