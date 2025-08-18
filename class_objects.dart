@@ -78,6 +78,7 @@ class Student {
 }
 
 // ------------------ Intermediate Example 2 ------------------
+
 // Q2: Create a class BankAccount with fields: accountHolder (String), balance (double).
 // Add methods deposit(double amount) and withdraw(double amount).
 // Withdraw should check if balance is sufficient, otherwise print "Insufficient balance".
