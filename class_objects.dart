@@ -4,6 +4,8 @@
 // Q1: Create a class Person with fields: name and age.
 // Add a method introduce() that prints "Hi, my name is <name> and I am <age> years old".
 
+import 'dart:ffi';
+
 void main() {
   Person person = Person();
   person.name = 'Hassan';
@@ -75,15 +77,44 @@ class Student {
   }
 }
 
-
 // ------------------ Intermediate Example 2 ------------------
 // Q2: Create a class BankAccount with fields: accountHolder (String), balance (double).
 // Add methods deposit(double amount) and withdraw(double amount).
 // Withdraw should check if balance is sufficient, otherwise print "Insufficient balance".
 //
-// Example: 
+// Example:
 // BankAccount("Ali", 1000).deposit(500);   // Balance = 1500
 // BankAccount("Ali", 1500).withdraw(2000); // "Insufficient balance"
+
+void main4() {
+  BankAccount user1 = BankAccount('Hassan', 50000);
+  user1.deposit(15530);
+
+  BankAccount user2 = BankAccount('Zohan', 15000);
+  user2.deposit(22021);
+}
+
+class BankAccount {
+  String accountHolder;
+  double balance;
+
+  BankAccount(this.accountHolder, this.balance);
+
+  void deposit(double amount) {
+    balance += amount;
+    print('amount deposit $amount. New balance $balance');
+  }
+
+  void withdrawn(double amount) {
+    if (amount <= balance) {
+      balance -= amount;
+      print("$amount withdrawn. Remaining balance: $balance");
+    } else {
+      print("Insufficient balance");
+    }
+  }
+}
+
 
 
 
