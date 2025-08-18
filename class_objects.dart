@@ -41,20 +41,39 @@ class Dog {
   }
 }
 
-
-
 //------------------- Intermediate Level ---------------------------
-
-
 
 // ------------------ Intermediate Example 1 ------------------
 // Q1: Create a class Student with fields: name (String), rollNo (int), and grade (nullable String).
-// Add a method showDetails() that prints student info. 
+// Add a method showDetails() that prints student info.
 // If grade is null, print "Grade not assigned yet".
-//
 // Example: Student("Hassan", 101, null).showDetails();
 
+void main3() {
+  Student student = Student('Hassan', 504, 'A');
+  student.showDetails();
+  Student student2 = Student('Zohan', 100, null);
+  student2.showDetails();
+}
 
+class Student {
+  String name;
+  int rollNo;
+  String? grade;
+
+  Student(this.name, this.rollNo, this.grade);
+
+  void showDetails() {
+    print('Name $name');
+    print('rollNo $rollNo');
+    if (grade == null) {
+      print('Grade not assign yet');
+    } else {
+      print('Grade $grade');
+    }
+    print('--------------------');
+  }
+}
 
 
 // ------------------ Intermediate Example 2 ------------------
