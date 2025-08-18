@@ -115,13 +115,7 @@ void main4() {
   user2.withdraw(10000);
 }
 
-
-
-
-
 //----------------- Advanced Level-------------------------
-
-
 
 // ------------------ Advanced Example 1 ------------------
 // Q1: Create a class Car with fields: brand, model, year (nullable int).
@@ -130,26 +124,82 @@ void main4() {
 //
 // Example: Car("Tesla", "Model S", null).drive();
 
+class Car {
+  String brand;
+  String model;
+  int? year; // nullable year
 
+  Car(this.brand, this.model, this.year);
 
+  void drive() {
+    if (year != null) {
+      print('$brand $model of year $year is driving');
+    } else {
+      print('$brand $model — Year not specified');
+    }
+  }
+}
 
+void main5() {
+  Car car1 = Car('Mercedes', 'Mercedes-Benz CLS 63 AMG', null);
+  car1.drive();
 
+  Car car2 = Car('Mercedes', 'Mercedes-AMG G 63', 2023);
+  car2.drive();
+}
 
 // ------------------ Advanced Example 2 ------------------
 // Q2: Create a class User with fields: username (String), email (nullable String).
-// Add a method showEmail() that prints the email if not null, 
+// Add a method showEmail() that prints the email if not null,
 // otherwise print "No email provided".
 //
 // Example: User("hassan123", null).showEmail();
 
+class User {
+  String username;
+  String? email;
+  User(this.username, this.email);
 
+  void showEmail() {
+    if (email != null) {
+      print('Email:$email');
+    } else {
+      print('No email provided');
+    }
+  }
+}
 
+void main6() {
+  User user1 = User('Hassan', 'mhassan.codes@gmaiol.com');
+  user1.showEmail();
 
-
+  User user2 = User('Abdullah', null);
+  user2.showEmail();
+}
 
 // ------------------ Advanced Example 3 ------------------
 // Q3: Create a class Product with fields: name (String), price (double?).
 // Add a method showPrice() that prints "Price: <price>".
 // If price is null, set it to a default value 100 and print that.
-//
-// Example: Product("Laptop", null).showPrice(); // "Price: 100"
+
+class Product {
+  String name;
+  double? price;
+
+  Product(this.name, this.price);
+
+  void showPrice() {
+    if (price == null) {
+      price = 100;
+    }
+    print('The Price is $price');
+  }
+}
+
+void main7() {
+  Product product1 = Product('Macbook', 1200);
+  product1.showPrice();
+
+  Product product2 = Product('Thinkpad', null);
+  product2.showPrice();
+}
