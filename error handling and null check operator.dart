@@ -5,8 +5,6 @@
 //
 // Example: String? name = null;  // should print "No name provided".
 
-import 'dart:math';
-
 void main() {
   String? name = null;
   if (name != null) {
