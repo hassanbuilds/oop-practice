@@ -14,21 +14,60 @@ void main() {
   }
 }
 
-
-
-
-
 // Q2: Create a class User with fields: username (String), email (nullable String).
 // Add a method showEmail() that prints the email if not null,
 // otherwise print "No email provided".
 //
 // Example: User("hassan123", null).showEmail();  // Output: "No email provided"
 
+class User {
+  String username;
+  String? email;
+
+  User(this.username, this.email);
+
+  void showEmail() {
+    if (email != null) {
+      print(email);
+    } else {
+      print('No email provided');
+    }
+  }
+}
+
+void main2() {
+  // Example 1: User with email
+  User user = User('Hassan', 'mhassan.codes@gmail.com');
+  user.showEmail();
+  // Example 2: user with no emial
+  User user2 = User('Abdullah', null);
+  user2.showEmail();
+}
+
 // Q3: Write a function printSquare(int? number) that safely prints
 // the square of number if it is not null, otherwise print "Number is missing".
 //
 // Example: printSquare(4);   // Output: 16
 //          printSquare(null); // Output: "Number is missing"
+
+void printSquare(int? number) {
+  if (number != null) {
+    print(number * number);
+  } else {
+    print('Number is missing');
+  }
+}
+
+void main3() {
+  printSquare(4); // Output: 16
+  printSquare(null); // Output: Number is missing
+}
+
+
+
+
+// ----------------------- Intermediate Level -------------------
+
 
 
 // Q4: Create a class Product with a nullable field price (double?).
@@ -50,6 +89,10 @@ void main() {
 //
 // Example: Student(null).checkPass();  // Throws Exception
 
+
+
+
+//------------------------------ Advance level -----------------------
 // Q7: Write a function fetchData(String? url) that simulates fetching data.
 // - If url is null, throw an ArgumentError.
 // - If url is empty, throw a FormatException.
