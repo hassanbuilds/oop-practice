@@ -156,6 +156,11 @@ void main6() {
 
 void fetchData() {}
 
+
+
+
+///whkfhjsfgvjidfgvuhdusfgv erf gshbfgyewgyf gfsyuf uf
+
 // Q8: Create a class BankAccount with nullable balance (double?).
 // Write a method withdraw(double amount) that:
 // - Throws Exception if balance is null.
