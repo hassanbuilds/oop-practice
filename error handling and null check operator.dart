@@ -100,13 +100,51 @@ void main4() {
 //
 // Example: divideNumbers(10, null);  // Output: "Missing input"
 
+void divideNumber(int? a, int? b) {
+  if (a == null || b == null) {
+    print('Missing Input');
+  } else if (b == 0) {
+    print('Canot divider by zero');
+  } else {
+    print(a / b);
+  }
+}
+
+void main5() {
+  divideNumber(10, null); // Missing oputput
+  divideNumber(56, 0); // Canot divide by zero
+  divideNumber(20, 10); // output 2.0
+}
+
 // Q6: Create a class Student with a nullable field grade (int?).
 // Write a method checkPass() that throws an exception if grade is null,
 // otherwise print "Pass" if grade >= 50, else "Fail".
 //
 // Example: Student(null).checkPass();  // Throws Exception
 
+class Student {
+  int? grade;
+  Student(this.grade);
 
+  void checkPass() {
+    if (grade == null) {
+      throw Exception('Some error message');
+    } else if (grade! >= 50) {
+      print('Pass');
+    } else {
+      print('Fail');
+    }
+  }
+}
+
+void main6() {
+  Student student1 = Student(58);
+  student1.checkPass(); // PASS
+  Student student2 = Student(35);
+  student2.checkPass(); // FAIL
+  Student student3 = Student(null);
+  student3.checkPass(); // Throw Exception
+}
 
 
 //------------------------------ Advance level -----------------------
