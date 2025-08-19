@@ -63,18 +63,35 @@ void main3() {
   printSquare(null); // Output: Number is missing
 }
 
-
-
-
 // ----------------------- Intermediate Level -------------------
-
-
 
 // Q4: Create a class Product with a nullable field price (double?).
 // Add a method getPriceWithTax(double taxRate) that returns price * taxRate,
 // but if price is null, return 0.0 instead.
 //
 // Example: Product(null).getPriceWithTax(1.1);  // Output: 0.0
+
+class Product {
+  double? price;
+
+  // CONSTRUCTOR
+  Product(this.price);
+
+  //Method to calculate price with tax
+
+  double priceWithTax(double taxRate) {
+    // if price is null return 0.0
+    return (price ?? 0.0) * taxRate;
+  }
+}
+
+void main4() {
+  Product product = Product(100.0);
+  print(product.priceWithTax(1.1));
+
+  Product product2 = Product(null);
+  print(product2.priceWithTax(1.1));
+}
 
 // Q5: Write a function divideNumbers(int? a, int? b) that tries to divide a by b.
 // - If either is null, print "Missing input".
