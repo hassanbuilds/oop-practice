@@ -5,6 +5,8 @@
 //
 // Example: String? name = null;  // should print "No name provided".
 
+import 'dart:math';
+
 void main() {
   String? name = null;
   if (name != null) {
@@ -154,12 +156,37 @@ void main6() {
 //
 // Example: fetchData(null);   // Throws ArgumentError
 
-void fetchData() {}
+void fetchData(String? URL) {
+  if (URL == null) {
+    throw ArgumentError('URL cant be null');
+  } else if (URL.isEmpty) {
+    throw FormatException('URL should not be empty ');
+  } else {
+    print('Fetching data from $URL');
+  }
+}
+
+void main7() {
+  try {
+    fetchData(null);
+  } catch (e) {
+    print(e);
+  }
+
+  try {
+    fetchData('');
+  } catch (e) {
+    print(e);
+  }
+
+  fetchData(
+    'https://github.com/hassanbuilds?tab=overview&from=2025-08-01&to=2025-08-19',
+  );
+}
 
 
 
 
-///whkfhjsfgvjidfgvuhdusfgv erf gshbfgyewgyf gfsyuf uf
 
 // Q8: Create a class BankAccount with nullable balance (double?).
 // Write a method withdraw(double amount) that:
