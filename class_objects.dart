@@ -4,8 +4,6 @@
 // Q1: Create a class Person with fields: name and age.
 // Add a method introduce() that prints "Hi, my name is <name> and I am <age> years old".
 
-import 'dart:ffi';
-
 void main() {
   Person person = Person();
   person.name = 'Hassan';
