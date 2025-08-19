@@ -184,10 +184,6 @@ void main7() {
   );
 }
 
-
-
-
-
 // Q8: Create a class BankAccount with nullable balance (double?).
 // Write a method withdraw(double amount) that:
 // - Throws Exception if balance is null.
@@ -196,10 +192,33 @@ void main7() {
 //
 // Example: BankAccount(100).withdraw(50);  // Output: New balance = 50
 
+class BankAccount {
+  double? balance;
 
+  // constructor
+  BankAccount(this.balance);
 
+  void withDraw(double amount) {
+    if (balance == null) {
+      throw Exception('Balance is NULL');
+    } else if (balance! < amount) {
+      throw Exception('Your balance is insufficient');
+    } else {
+      balance = balance! - amount;
+      print('New balance = $balance');
+    }
+  }
+}
 
-
+void main8() {
+  try {
+    var account = BankAccount(100);
+    account.withDraw(50); //  works
+    account.withDraw(70); //  will throw "insufficient balance"
+  } catch (e) {
+    print('ERROR: $e');
+  }
+}
 
 // Q9: Write a function getUserName(Map<String, String?> user) that:
 // - Uses null check operator (!) to force access "name".
@@ -207,3 +226,19 @@ void main7() {
 // - Wrap it in try-catch and print the error if occurs.
 //
 // Example: getUserName({"name": null});  // Caught error
+
+void getUserName(Map<String, String?> user) {
+  try {
+    // // Forcefully unwrap using
+    String name = user['name']!;
+    print('User name $name');
+  } catch (e) {
+    print('Caugth Error $e');
+  }
+}
+
+void main9() {
+  getUserName({"name": "Hassan"}); //  Works fine
+  getUserName({"name": null}); //  Throws, caught in catch
+  getUserName({}); //  Also throws, caught in catch
+}
