@@ -1,12 +1,18 @@
 // ----------------- Basic Example -------------------------------
 
-
 // Q1: Create a variable name of type String? and assign it null.
 // Try to print its length safely (without causing an error).
 //
 // Example: String? name = null;  // should print "No name provided".
 
-
+void main() {
+  String? name = null;
+  if (name != null) {
+    print(name.length); // only is name is present
+  } else {
+    print('No name provided'); // runs when name is null
+  }
+}
 
 
 
