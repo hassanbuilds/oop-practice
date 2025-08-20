@@ -146,7 +146,6 @@ void main6() {
   student3.checkPass(); // Throw Exception
 }
 
-
 //------------------------------ Advance level -----------------------
 // Q7: Write a function fetchData(String? url) that simulates fetching data.
 // - If url is null, throw an ArgumentError.
@@ -154,6 +153,8 @@ void main6() {
 // - Otherwise print "Fetching from <url>".
 //
 // Example: fetchData(null);   // Throws ArgumentError
+
+void fetchData() {}
 
 // Q8: Create a class BankAccount with nullable balance (double?).
 // Write a method withdraw(double amount) that:
