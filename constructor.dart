@@ -214,7 +214,7 @@ void main8() {
 
   var user2 = User.fromMap({
     'Username': 'Abdullah',
-    'Email': 'Email is missing',
+    'Email': 'Email is missing', // // email is missing
   });
   user2.show();
   //  output  // Output: username: Abdullah, email:  Email is missing
