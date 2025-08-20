@@ -30,13 +30,6 @@ void main() {
 // Example: Student.guest().introduce();
 // Output: Hi, I am Guest, age 0
 
-// Q2: Create a class Student with fields name and age.
-// - Add a named constructor Student.guest() that sets name = "Guest" and age = 0.
-// - Add a method introduce() that prints "Hi, I am <name>, age <age>".
-//
-// Example: Student.guest().introduce();
-// Output: Hi, I am Guest, age 0
-
 class Student {
   String name;
   int age;
@@ -60,31 +53,49 @@ void main2() {
   guestStudent.introduce();
 }
 
-
-
-
-
 // Q3: Create a class Rectangle with fields length and width.
 // - Add a constructor with named parameters to initialize both.
 // - Add a method area() that prints "Area: <length * width>".
 //
-// Example: Rectangle(length: 5, width: 3).area();  
+// Example: Rectangle(length: 5, width: 3).area();
 // Output: Area: 15
 
+class Rectangle {
+  int length;
+  int width;
 
+  Rectangle({required this.length, required this.width});
+  void area() {
+    print('Area: $length * $width');
+  }
+}
 
-
-
-
-
+void main3() {
+  Rectangle rectangle = Rectangle(length: 5, width: 3);
+  rectangle.area();
+}
 
 // Q4: Create a class Book with fields title and author.
 // - Create a constructor with required named parameters.
 // - Add a method details() that prints "<title> by <author>".
 //
-// Example: Book(title: "1984", author: "Orwell").details();  
+// Example: Book(title: "1984", author: "Orwell").details();
 // Output: 1984 by Orwell
 
+class Book {
+  String title;
+  String author;
+  Book({required this.author, required this.title});
+
+  void details() {
+    print('$title by $author');
+  }
+}
+
+void main4() {
+  Book book = Book(title: 'Orwell', author: '1984');
+  book.details();
+}
 
 // -------------------- Intermediate Level -----------------------------
 
