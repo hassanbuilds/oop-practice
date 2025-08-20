@@ -63,7 +63,7 @@ void main2() {
 class Rectangle {
   int length;
   int width;
-
+  //  constructor
   Rectangle({required this.length, required this.width});
   void area() {
     print('Area: $length * $width');
@@ -85,6 +85,7 @@ void main3() {
 class Book {
   String title;
   String author;
+  // constructor
   Book({required this.author, required this.title});
 
   void details() {
