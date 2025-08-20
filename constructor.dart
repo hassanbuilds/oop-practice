@@ -108,49 +108,117 @@ void main4() {
 // Example: Point.origin().show();
 // Output: (0, 0)
 
-class Point {}
+class Point {
+  int x;
+  int y;
 
+  // constructor
+  Point(this.x, this.y);
 
+  //Named constructor
+  Point.origin() : x = 0, y = 0;
 
+  void show() {
+    print('($x, $y)');
+  }
+}
 
+void main5() {
+  var p1 = Point(3, 5);
+  p1.show();
+
+  var p2 = Point.origin();
+  p2;
+  p2.show();
+}
 
 // Q6: Create a class Person with fields firstName, lastName, and fullName.
 // - Use an initializer list to set fullName = "$firstName $lastName".
 // - Add a method introduce() that prints "I am <fullName>".
-//
-// Example: Person("Ali", "Khan").introduce();  
-// Output: I am Ali Khan
 
+class Person {
+  String firstName;
+  String lastName;
+  String fullName;
+  Person(this.firstName, this.lastName) : fullName = '$firstName  $lastName';
 
+  void introduce() {
+    print('I am $fullName');
+  }
+}
 
+void main6() {
+  var person1 = Person('Muhammad', 'Hassan');
+  person1.introduce();
 
-
-
+  var person2 = Person('Muhammad', 'Abdullah');
+  person2.introduce();
+}
 
 // Q7: Create a class Circle with a field radius.
 // - Add a constant constructor.
 // - Create multiple const objects and check if they are identical.
 //
-// Example:  
+// Example:
 // const c1 = Circle(5);
 // const c2 = Circle(5);
-// print(identical(c1, c2));  
+// print(identical(c1, c2));
 // Output: true
 
+class Circle {
+  final double radius; // Final must be use where we want the const constructor
+  //  Const Constructor
+  const Circle(this.radius);
+}
 
-
-
-
+void main7() {
+  const c1 = Circle(5);
+  const c2 = Circle(5);
+  const c3 = Circle(10);
+  print(identical(c1, c2)); // true
+  print(identical(c1, c3)); // false
+}
 
 // Q8: Create a class User with fields username and email.
-// - Add a factory constructor User.fromMap(Map<String, String>) 
+// - Add a factory constructor User.fromMap(Map<String, String>)
 //   that returns a User object.
 // - Add a method show() that prints "username: <username>, email: <email>".
 //
-// Example: User.fromMap({"username": "hassan", "email": "h@gmail.com"}).show();  
+// Example: User.fromMap({"username": "hassan", "email": "h@gmail.com"}).show();
 // Output: username: hassan, email: h@gmail.com
 
+class User {
+  String username;
+  String email;
 
+  // Normal constructor
+  User(this.username, this.email);
+
+  //  factory constructor
+  factory User.fromMap(Map<String, String> map) {
+    return User(map['username'] ?? 'unknown', map['email'] ?? 'no-email');
+  }
+
+  void show() {
+    print('Username $username , Email $email');
+  }
+}
+
+void main8() {
+  var user1 = User.fromMap({
+    'Useranme': 'Hassan',
+    'Email': 'mhassan.codes@gmail.com',
+  });
+  user1.show();
+  // output : Username: Hassan  Email: mhassan.codes@gmail.com
+
+  var user2 = User.fromMap({
+    'Username': 'Abdullah',
+    'Email': 'Email is missing',
+  });
+  user2.show();
+  //  output  // Output: username: Abdullah, email:  Email is missing
+}
 
 //-------------------- Advanced Level -------------------------
 
