@@ -4,25 +4,61 @@
 // - Write a default constructor that initializes both fields.
 // - Add a method showDetails() that prints "Car: <brand> <model>".
 //
-// Example: Car("Toyota", "Corolla").showDetails();  
+// Example: Car("Toyota", "Corolla").showDetails();
 // Output: Car: Toyota Corolla
 
+class Car {
+  String brand;
+  String model;
+  //constructor
+  Car(this.brand, this.model);
 
+  void showDetail() {
+    print('Car: $brand $model');
+  }
+}
 
-
-
-
-
-
+void main() {
+  Car car = Car('Mercedes', 'mercedes cls 63 amg');
+  car.showDetail();
+}
 
 // Q2: Create a class Student with fields name and age.
 // - Add a named constructor Student.guest() that sets name = "Guest" and age = 0.
 // - Add a method introduce() that prints "Hi, I am <name>, age <age>".
 //
-// Example: Student.guest().introduce();  
+// Example: Student.guest().introduce();
 // Output: Hi, I am Guest, age 0
 
+// Q2: Create a class Student with fields name and age.
+// - Add a named constructor Student.guest() that sets name = "Guest" and age = 0.
+// - Add a method introduce() that prints "Hi, I am <name>, age <age>".
+//
+// Example: Student.guest().introduce();
+// Output: Hi, I am Guest, age 0
 
+class Student {
+  String name;
+  int age;
+
+  // Normal constructor
+  Student(this.name, this.age);
+
+  // Named constructor
+  Student.guest() : name = "Guest", age = 0;
+
+  void introduce() {
+    print("Hi, I am $name, age $age");
+  }
+}
+
+void main2() {
+  Student student1 = Student("Muhammad Hassan", 20);
+  student1.introduce();
+
+  Student guestStudent = Student.guest();
+  guestStudent.introduce();
+}
 
 
 
