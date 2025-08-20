@@ -222,57 +222,37 @@ void main8() {
 
 //-------------------- Advanced Level -------------------------
 
-
 // Q9: Create a base class Shape with a constructor that prints "Shape created".
 // - Extend Shape with Square and Triangle classes.
 // - Each child constructor should call the parent constructor.
 // - Add a method draw() in each child class that prints its shape name.
 //
-// Example: Square().draw();  
+// Example: Square().draw();
 // Output: Shape created
 //         Drawing Square
 
-
-
-
-
-
-
-
-
-
-
+class Shape {}
 
 // Q10: Create a class DatabaseConnection with a private constructor.
-// - Add a static factory method getInstance() that always returns 
+// - Add a static factory method getInstance() that always returns
 //   the same object (Singleton).
 // - Add a method query() that prints "Running query...".
 //
-// Example:  
+// Example:
 // var db1 = DatabaseConnection.getInstance();
 // var db2 = DatabaseConnection.getInstance();
-// print(identical(db1, db2));  
+// print(identical(db1, db2));
 // Output: true
 
-
-
-
-
-
 // Q11: Create a class Vehicle with a constructor that takes type and wheels.
-// - Add redirecting constructors Vehicle.car() and Vehicle.bike() 
+// - Add redirecting constructors Vehicle.car() and Vehicle.bike()
 //   that set type = "Car", wheels = 4 and type = "Bike", wheels = 2.
 // - Add a method show() that prints "<type> has <wheels> wheels".
 //
-// Example: Vehicle.bike().show();  
+// Example: Vehicle.bike().show();
 // Output: Bike has 2 wheels
 
-
-
-
-
-
-
+class Vechile {}
 
 // Q12: Create a class JsonResponse with a field data.
 // - Add a factory constructor JsonResponse.from(String input).
@@ -280,5 +260,43 @@ void main8() {
 // - Otherwise, throw a FormatException.
 // - Add a method show() that prints "Valid JSON: <data>".
 //
-// Example: JsonResponse.from("{id:1}").show();  
+// Example: JsonResponse.from("{id:1}").show();
 // Output: Valid JSON: {id:1}
+
+class JsonResponse {
+  String data;
+
+  // Normal constructor
+  JsonResponse(this.data);
+
+  // Factory constructor
+  factory JsonResponse.from(String input) {
+    if (input.startsWith("{") && input.endsWith("}")) {
+      return JsonResponse(input); //  call normal constructor
+    } else {
+      throw FormatException("Invalid JSON format: $input");
+    }
+  }
+
+  // Method to show the data
+  void show() {
+    print("Valid JSON: $data");
+  }
+}
+
+void mai12() {
+  // Example usage
+  try {
+    var json = JsonResponse.from("{id:1}");
+    json.show(); // Output: Valid JSON: {id:1}
+  } catch (e) {
+    print(e);
+  }
+
+  try {
+    var invalidJson = JsonResponse.from("id:1");
+    invalidJson.show();
+  } catch (e) {
+    print(e); // Output: Invalid JSON format: id:1
+  }
+}
