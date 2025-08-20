@@ -100,18 +100,15 @@ void main4() {
 
 // -------------------- Intermediate Level -----------------------------
 
-
-
-
 // Q5: Create a class Point with fields x and y.
 // - Add a normal constructor to initialize both values.
 // - Add a named constructor Point.origin() that sets x = 0 and y = 0.
 // - Add a method show() that prints "(x, y)".
 //
-// Example: Point.origin().show();  
+// Example: Point.origin().show();
 // Output: (0, 0)
 
-
+class Point {}
 
 
 
