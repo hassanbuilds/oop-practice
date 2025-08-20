@@ -222,18 +222,7 @@ void main8() {
 
 //-------------------- Advanced Level -------------------------
 
-// Q9: Create a base class Shape with a constructor that prints "Shape created".
-// - Extend Shape with Square and Triangle classes.
-// - Each child constructor should call the parent constructor.
-// - Add a method draw() in each child class that prints its shape name.
-//
-// Example: Square().draw();
-// Output: Shape created
-//         Drawing Square
-
-class Shape {}
-
-// Q10: Create a class DatabaseConnection with a private constructor.
+// Q9: Create a class DatabaseConnection with a private constructor.
 // - Add a static factory method getInstance() that always returns
 //   the same object (Singleton).
 // - Add a method query() that prints "Running query...".
@@ -244,7 +233,34 @@ class Shape {}
 // print(identical(db1, db2));
 // Output: true
 
-// Q11: Create a class Vehicle with a constructor that takes type and wheels.
+class DatabaseConnection {
+  // Step 1: A private named constructor
+  DatabaseConnection._internal();
+
+  // Step 2: A static field holding the single instance
+  static final DatabaseConnection _instance = DatabaseConnection._internal();
+
+  // Step 3: Static factory method to return the same instance
+  static DatabaseConnection getInstance() {
+    return _instance;
+  }
+
+  // Step 4: Example method
+  void query() {
+    print("Running query...");
+  }
+}
+
+void main9() {
+  var db1 = DatabaseConnection.getInstance();
+  var db2 = DatabaseConnection.getInstance();
+
+  db1.query();
+
+  print(identical(db1, db2)); // true (both are the same object)
+}
+
+// Q10: Create a class Vehicle with a constructor that takes type and wheels.
 // - Add redirecting constructors Vehicle.car() and Vehicle.bike()
 //   that set type = "Car", wheels = 4 and type = "Bike", wheels = 2.
 // - Add a method show() that prints "<type> has <wheels> wheels".
@@ -252,9 +268,31 @@ class Shape {}
 // Example: Vehicle.bike().show();
 // Output: Bike has 2 wheels
 
-class Vechile {}
+class Vechile {
+  String type;
+  int wheels;
+  // Main constructor
+  Vechile(this.type, this.wheels);
 
-// Q12: Create a class JsonResponse with a field data.
+  // Redirecting constructor for Car
+  Vechile.car() : this('Car', 4);
+
+  // redirecting constructor for bike
+  Vechile.bike() : this('Bike', 2);
+
+  // Method to show info
+
+  void show() {
+    print('$type has Wheels $wheels');
+  }
+}
+
+void main10() {
+  Vechile.car().show();
+  Vechile.bike().show();
+}
+
+// Q11: Create a class JsonResponse with a field data.
 // - Add a factory constructor JsonResponse.from(String input).
 // - If input starts with "{" and ends with "}", return JsonResponse(input).
 // - Otherwise, throw a FormatException.
@@ -284,7 +322,7 @@ class JsonResponse {
   }
 }
 
-void mai12() {
+void main11() {
   // Example usage
   try {
     var json = JsonResponse.from("{id:1}");
