@@ -181,38 +181,5 @@ Title: Advanced Dart, Author: Hassan, Available: false
 Title: Dart Guide, Author: Hassan, Available: true */
 
 
-// Q4: Update User.borrowBook(Book book) to check if book.isAvailable is true before borrowing.
-// - If not available, print "Book <title> is already borrowed."
-//
-// Example:
-// Book b = Book("Flutter Basics", "Ali", false);
-// User u = User("Sara");
-// u.borrowBook(b);
-// Output: Book Flutter Basics is already borrowed.
+ // ------------------------------------------------------------------- 
 
-// ------------------------- ADVANCED LEVEL --------------------------------
-
-// Q5: Create an abstract class LibraryItem with fields: title (String), id (int), isAvailable (bool, default true).
-// - Add an abstract method displayInfo().
-//
-// Q6: Create classes Book and Magazine that inherit LibraryItem.
-// - Book has an extra field author (String).
-// - Magazine has an extra field issueNumber (int).
-// - Implement displayInfo() in both classes.
-//
-// Example:
-// Book b = Book(1, "Dart Mastery", "Hassan");
-// b.displayInfo();
-// Output: ID: 1, Title: Dart Mastery, Author: Hassan, Available: true
-
-// Q7: Update Library to hold a List<LibraryItem> instead of List<Book>.
-// - Add a method displayItemsByType(String type) that prints only Books or Magazines.
-// - Add a method borrowItemById(int id) that sets isAvailable to false.
-// - Add a method returnItemById(int id) that sets isAvailable to true.
-// - Throw an exception if trying to borrow an unavailable item.
-//
-// Example:
-// Library lib = Library();
-// lib.addItem(Book(1, "Dart", "Hassan"));
-// lib.borrowItemById(1);
-// Output: Item borrowed successfully
