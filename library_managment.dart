@@ -8,6 +8,8 @@
 // b.displayInfo();
 // Output: Title: Flutter Guide, Author: Hassan, Available: true
 
+// ignore_for_file: unused_local_variable
+
 class Book {
   String title;
   String author;
@@ -90,9 +92,6 @@ void main2() {
 
 // --------------------- INTERMEDIATE LEVEL -------------------------------
 
-
-
-
 // Q3: Create a class Library with a field books (List<Book>).
 // - Add a method addBook(Book book) to add a book to the library.
 // - Add a method removeBook(String title) to remove a book by title.
@@ -103,7 +102,84 @@ void main2() {
 // Library lib = Library();
 // lib.addBook(Book("Dart Guide", "Hassan"));
 // lib.displayAvailableBooks();
-// Output: Title: Dart Guide, Author: Hassan, Available: true
+
+// Book class
+
+class Book3 {
+  String title;
+  String author;
+  bool isAvailable;
+
+  Book3(this.title, this.author, [this.isAvailable = true]);
+}
+
+// Class Library
+class Library {
+  List<Book3> books;
+
+  Library() : books = [];
+
+  // Add a book to library
+  void addBook(Book3 book) {
+    books.add(book);
+  }
+
+  // Remove a book to author
+  void removeBook(Book3 book) {
+    books.remove(book);
+  }
+
+  // Search by author
+  List<Book3> searchByAuthor(String author) {
+    return books.where((book) => book.author == author).toList();
+  }
+
+  // Display an avaliable book
+
+  void displayAvaliableBook() {
+    for (var Book3 in books) {
+      if (Book3.isAvailable) {
+        print(
+          'Title: ${Book3.title}, Author: ${Book3.author}, IsAvaliable ${Book3.isAvailable}',
+        );
+      }
+    }
+  }
+}
+
+void main3() {
+  Library lib = Library();
+  // ADD BOOKS
+
+  lib.addBook(Book3("Dart Guide", "Hassan"));
+  lib.addBook(Book3("Flutter Basics", "Ali"));
+  lib.addBook(Book3("Advanced Dart", "Hassan", false));
+
+  // Display available books
+  lib.displayAvaliableBook();
+
+  print("---- Search by Author: Hassan ----");
+  var hassanBooks = lib.searchByAuthor("Hassan");
+  for (var b in hassanBooks) {
+    print(
+      "Title: ${b.title}, Author: ${b.author}, Available: ${b.isAvailable}",
+    );
+  }
+
+  print("---- Removing Flutter Basics ----");
+  lib.removeBook("Flutter Basics" as Book3);
+  lib.displayAvaliableBook();
+}
+
+   // OUTPUT 
+/*Title: Dart Guide, Author: Hassan, Available: true
+Title: Flutter Basics, Author: Ali, Available: true
+---- Search by Author: Hassan ----
+Title: Dart Guide, Author: Hassan, Available: true
+Title: Advanced Dart, Author: Hassan, Available: false
+---- Removing Flutter Basics ----
+Title: Dart Guide, Author: Hassan, Available: true */
+
 
 // Q4: Update User.borrowBook(Book book) to check if book.isAvailable is true before borrowing.
 // - If not available, print "Book <title> is already borrowed."
@@ -115,8 +191,6 @@ void main2() {
 // Output: Book Flutter Basics is already borrowed.
 
 // ------------------------- ADVANCED LEVEL --------------------------------
-
-
 
 // Q5: Create an abstract class LibraryItem with fields: title (String), id (int), isAvailable (bool, default true).
 // - Add an abstract method displayInfo().
