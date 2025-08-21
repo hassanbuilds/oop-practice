@@ -39,6 +39,55 @@ void main() {
 // print(b.isAvailable);
 // Output: false
 
+// Book classs
+// Book class
+class Books {
+  String title;
+  String author;
+  bool isAvailable;
+
+  Books(this.title, this.author, [this.isAvailable = true]);
+}
+
+// User class
+class User {
+  String name;
+  List<Book> borrowedBooks;
+
+  User(this.name) : borrowedBooks = [];
+
+  // Borrow a book
+  void borrowBook(Book book) {
+    if (book.isAvailable) {
+      borrowedBooks.add(book);
+      book.isAvailable = false; // mark as borrowed
+    } else {
+      print('The book "${book.title}" is already borrowed');
+    }
+  }
+
+  // Return a book
+  void returnBook(Book book) {
+    if (borrowedBooks.contains(book)) {
+      borrowedBooks.remove(book);
+      book.isAvailable = true; // mark as available
+    } else {
+      print('User "$name" did not borrow the book "${book.title}"');
+    }
+  }
+}
+
+void main2() {
+  Book b = Book("Dart Basics", "Hassan");
+  User u = User("Ali");
+
+  u.borrowBook(b);
+  print(b.isAvailable); // false
+
+  u.returnBook(b);
+  print(b.isAvailable); // true
+}
+
 // --------------------- INTERMEDIATE LEVEL -------------------------------
 
 
