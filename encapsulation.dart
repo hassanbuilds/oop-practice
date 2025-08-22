@@ -9,7 +9,25 @@
 // p.name = "Hassan";
 // print(p.name);  // Output: Hassan
 
+class Person {
+  String? _name; // private field, nullable
 
+  // Setter
+  set name(String? newName) {
+    _name = newName;
+  }
+
+  // Getter
+  String? get name {
+    return _name;
+  }
+}
+
+void main() {
+  var p = Person(); // no need to pass anything
+  p.name = 'Hassan'; // setter
+  print(p.name); // getter -> Hassan
+}
 
 
 
