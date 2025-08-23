@@ -7,14 +7,44 @@
 // Create another derived class Cat that overrides sound().
 // Show how each makes its own sound.
 
+class Animal {
+  void sound() {
+    print('Animal makes sound');
+  }
+}
 
+class Dog extends Animal {
+  @override
+  void sound() {
+    print('Dog barks: woof woof!');
+  }
+}
 
+class Cat extends Animal {
+  @override
+  void sound() {
+    print('Cat meows: meow meow!');
+  }
+}
+
+void main() {
+  var animal = Animal();
+  animal.sound(); // Output: Animal makes a sound
+
+  var dog = Dog();
+  dog.sound(); // output Dog barks: woff woff!
+
+  var cat = Cat();
+  cat.sound(); // Output cat meows: meow meow!
+}
 
 //Q2: Inheriting Properties
 
 // Create a base class Person with fields name and age.
 // Create a class Student that extends Person and adds a field grade.
 // Add a method introduce() that prints: "Hi, I am [name], age [age], in grade [grade]".
+
+
 
 // ------------------------- Intermediate Level-----------------------------------
 
