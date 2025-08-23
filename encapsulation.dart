@@ -9,6 +9,8 @@
 // p.name = "Hassan";
 // print(p.name);  // Output: Hassan
 
+import 'dart:ffi';
+
 class Person {
   String? _name; // private field, nullable
 
@@ -117,7 +119,6 @@ void main3() {
   print("${s.rollNo}, ${s.marks}"); // Output: 101, 100
 }
 
-
 //--------------------- Intermediate Level ---------------------
 
 // Q4: Create a class Employee with private fields _id and _salary.
@@ -131,9 +132,36 @@ void main3() {
 // print(emp.id);      // Output: 1
 // print(emp.salary);  // Output: 60000
 
+class Employee {
+  int _id;
+  double _salary;
 
+  Employee(this._id, this._salary);
 
+  // getter for id
+  int get id => _id;
 
+  // getter for the salary
+  double get salary => _salary;
+
+  // setter
+  set salary(double value) {
+    if (value > 0) {
+      salary = _salary;
+    } else {
+      print('Salary cannot be negative or zero');
+    }
+  }
+
+  void main4() {
+    var emp = Employee(1, 50000);
+    emp.salary = 60000; // updates salary
+    print(emp.id); // Output: 1
+    print(emp.salary); // Output: 60000
+
+    emp.salary = -1000; // Will show error message
+  }
+}
 
 
 // Q5: Create a class Rectangle with private fields _length and _width.
