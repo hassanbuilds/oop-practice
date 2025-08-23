@@ -62,16 +62,48 @@ void main2() {
   print('${student.name},${student.age}, ${student.grade} ');
 }
 
-
 // ------------------------- Intermediate Level-----------------------------------
 
- //Q3: Multi-level Inheritance
+//Q3: Multi-level Inheritance
 
 // Create a class Shape with a method area().
 // Create a class Rectangle that extends Shape with length and width fields.
 // Create a class Square that extends Rectangle (where length == width).
 // Demonstrate how Square inherits from Rectangle and Shape.
 
+class Shape {
+  void area() {
+    print('Area method');
+  }
+}
+
+class Recatangle extends Shape {
+  double length;
+  double width;
+  Recatangle(this.length, this.width);
+  @override
+  void area() {
+    double result = length * width;
+    print("Area of Rectangle = $result");
+  }
+}
+
+class Square extends Recatangle {
+  Square(double sized) : super(sized, sized);
+  @override
+  void area() {
+    double result = length * width; // same because both are equal
+    print("Area of Square = $result");
+  }
+}
+
+void main3() {
+  var rectangle = Recatangle(10, 5);
+  rectangle.area(); // Output: Area of Rectangle = 50
+
+  var square = Square(6);
+  square.area(); // Output: Area of Square = 36
+}
 
 //Q4: Using super keyword
 
