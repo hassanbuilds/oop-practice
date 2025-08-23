@@ -44,6 +44,23 @@ void main() {
 // Create a class Student that extends Person and adds a field grade.
 // Add a method introduce() that prints: "Hi, I am [name], age [age], in grade [grade]".
 
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+}
+
+class Student extends Person {
+  String grade;
+
+  Student(String name, int age, this.grade) : super(name, age);
+}
+
+void main2() {
+  var student = Student('Hassan', 20, 'A+');
+  print('${student.name},${student.age}, ${student.grade} ');
+}
 
 
 // ------------------------- Intermediate Level-----------------------------------
