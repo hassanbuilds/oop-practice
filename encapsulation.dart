@@ -273,7 +273,6 @@ void main6() {
   book.returnBook(); // Trying to return again → shows warning
 }
 
-
 // -------------------------- Advanced Level --------------------------------
 
 // Q7: Create a class Circle with a private field _radius.
@@ -286,9 +285,28 @@ void main6() {
 // const c2 = Circle(5);
 // print(identical(c1, c2));  // Output: true
 
+class Circle {
+  final double _radius; // must be final for const constructor
 
+  // constant constructor
+  const Circle(this._radius);
 
+  // getter for radius
+  double get radius => _radius;
+}
 
+void main7() {
+  const c1 = Circle(5);
+  const c2 = Circle(5);
+  const c3 = Circle(10);
+
+  print(c1.radius); // Output: 5
+  print(c2.radius); // Output: 5
+  print(c3.radius); // Output: 10
+
+  print(identical(c1, c2)); // true (same const object)
+  print(identical(c1, c3)); // false (different radius)
+}
 
 // Q8: Create a class Bank with a private static field _totalBalance.
 // - Add deposit(int amount) and withdraw(int amount) methods.
@@ -301,19 +319,40 @@ void main6() {
 // bank.withdraw(500);
 // print(Bank.totalBalance);  // Output: 1500
 
+class Bank {
+  // private static field
+  static int _totalBalance = 0;
 
+  // deposit method
+  void deposit(int amount) {
+    if (amount > 0) {
+      _totalBalance += amount;
+      print("Deposited: $amount");
+    } else {
+      print("Deposit amount must be positive");
+    }
+  }
 
+  // withdraw method
+  void withdraw(int amount) {
+    if (amount > 0 && _totalBalance >= amount) {
+      _totalBalance -= amount;
+      print("Withdrew: $amount");
+    } else {
+      print("Insufficient balance or invalid amount");
+    }
+  }
 
+  // getter for total balance
+  static int get totalBalance => _totalBalance;
+}
 
+void main8() {
+  var bank1 = Bank();
+  var bank2 = Bank();
 
+  bank1.deposit(2000);
+  bank2.withdraw(500);
 
-// Q9: Create a class SecureFile with a private field _content.
-// - Add a private method _encrypt(String data).
-// - Add a method write(String data) that stores encrypted content.
-// - Add a method read() that returns decrypted content.
-// (Simulate encryption by reversing the string).
-//
-// Example:
-// var file = SecureFile();
-// file.write("hello");
-// print(file.read());  // Output: hello
+  print(Bank.totalBalance); // Output: 1500
+}
