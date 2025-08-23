@@ -112,6 +112,30 @@ void main3() {
 // Use 'super' to initialize brand from Vehicle.
 // Print: "Brand: [brand], Model: [model]".
 
+class Vechile {
+  String brand;
+
+  // Constructor with default value option
+  Vechile(this.brand);
+}
+
+class Car extends Vechile {
+  String model;
+  // constructor with super keyword
+  Car(String brand, this.model) : super(brand);
+
+  void display() {
+    print('Brand: $brand , Model: $model');
+  }
+}
+
+void main4() {
+  var car1 = Car('Mercedes-Benz', 'CLS 63 AMG');
+  car1.display(); // output Brand: Mercedes-Benz , Model: CLS 63 AMG
+
+  var car2 = Car('Mercedes-Benz', 'Maybach S-Class');
+  car2.display(); // output Brand: Mercedes-Benz , Model: Maybach S-Class
+}
 
 //Q5: Method Overriding with Polymorphism
 
@@ -120,6 +144,58 @@ void main3() {
 // In SavingsAccount, disallow withdraw if balance < 1000.
 // In CurrentAccount, allow withdraw without restriction.
 // Demonstrate polymorphism by using an Account reference to point to both.
+
+class Account {
+  double balance;
+
+  Account(this.balance);
+
+  void withdraw(double amount) {
+    // Base method (will be overridden)
+    print("Withdraw method in Account");
+  }
+}
+
+class SavingsAccount extends Account {
+  SavingsAccount(double balance) : super(balance);
+
+  @override
+  void withdraw(double amount) {
+    if (balance - amount < 1000) {
+      print("Transaction cannot be processed: Balance cannot go below 1000");
+    } else {
+      balance -= amount;
+      print("Withdrawn: $amount, New Balance: $balance");
+    }
+  }
+}
+
+class CurrentAccount extends Account {
+  CurrentAccount(double balance) : super(balance);
+
+  @override
+  void withdraw(double amount) {
+    balance -= amount;
+    print("Withdrawn: $amount, New Balance: $balance");
+  }
+}
+
+void main5() {
+  Account acc;
+
+  // SavingsAccount case
+  acc = SavingsAccount(1500);
+  acc.withdraw(600); // Allowed
+  acc.withdraw(600); // Not allowed (goes below 1000)
+
+  print("----");
+
+  // CurrentAccount case
+  acc = CurrentAccount(1500);
+  acc.withdraw(600); // Allowed
+  acc.withdraw(1000); // Allowed, can even go negative
+}
+
 
 // ---------------------- Advanced Level --------------------------
 
