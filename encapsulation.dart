@@ -29,8 +29,6 @@ void main() {
   print(p.name); // getter -> Hassan
 }
 
-
-
 // Q2: Create a class BankAccount with a private field _balance.
 // - Initialize it to 0.
 // - Add a method deposit(int amount).
@@ -41,8 +39,36 @@ void main() {
 // acc.deposit(1000);
 // print(acc.getBalance());  // Output: 1000
 
+// Q2: Create a class BankAccount with a private field _balance.
+// - Initialize it to 0.
+// - Add a method deposit(int amount).
+// - Add a method getBalance() to return current balance.
 
+class BankAccount {
+  double _balance = 0; // private field initialized to 0
 
+  // deposit method
+  void deposit(double amount) {
+    if (amount > 0) {
+      _balance += amount;
+    }
+  }
+
+  // getter: returns current balance
+  double get balance => _balance;
+
+  // OR you can write a method instead of getter
+  double getBalance() {
+    return _balance;
+  }
+}
+
+void main2() {
+  var acc = BankAccount();
+  acc.deposit(1000); // deposit some money
+  print(acc.balance); // using getter
+  print(acc.getBalance()); // using method
+}
 
 // Q3: Create a class Student with private fields _rollNo and _marks.
 // - Add setters and getters.
@@ -54,6 +80,42 @@ void main() {
 // s.marks = 85;
 // print("${s.rollNo}, ${s.marks}");  // Output: 101, 85
 
+class Student {
+  int _rollNo = 0; // private field
+  int _marks = 0; // private field
+
+  // Setter for rollNo
+  set rollNo(int value) {
+    _rollNo = value;
+  }
+
+  // Getter for rollNo
+  int get rollNo => _rollNo;
+
+  // Setter for marks (with validation)
+  set marks(int value) {
+    if (value < 0) {
+      _marks = 0;
+    } else if (value > 100) {
+      _marks = 100;
+    } else {
+      _marks = value;
+    }
+  }
+
+  // Getter for marks
+  int get marks => _marks;
+}
+
+void main3() {
+  var s = Student();
+  s.rollNo = 101; // using setter
+  s.marks = 85; // using setter with validation
+  print("${s.rollNo}, ${s.marks}"); // Output: 101, 85
+
+  s.marks = 150; // invalid, will be capped to 100
+  print("${s.rollNo}, ${s.marks}"); // Output: 101, 100
+}
 
 
 //--------------------- Intermediate Level ---------------------
