@@ -163,7 +163,6 @@ class Employee {
   }
 }
 
-
 // Q5: Create a class Rectangle with private fields _length and _width.
 // - Add a constructor to set values.
 // - Add getters and setters.
@@ -174,10 +173,53 @@ class Employee {
 // var r = Rectangle(10, 5);
 // print(r.area());  // Output: 50
 
+class Rectangle {
+  double _length;
+  double _width;
 
+  // constructor
+  Rectangle(this._length, this._width);
 
+  // getter for length
+  double get length => _length;
 
+  // getter for width
+  double get width => _width;
 
+  // setter for length
+  set length(double value) {
+    if (value > 0) {
+      _length = value;
+    } else {
+      print("Length cannot be negative or zero");
+    }
+  }
+
+  // setter for width
+  set width(double value) {
+    if (value > 0) {
+      _width = value;
+    } else {
+      print("Width cannot be negative or zero");
+    }
+  }
+
+  // method to calculate area
+  double area() {
+    return _length * _width;
+  }
+}
+
+void main5() {
+  var r = Rectangle(10, 5);
+  print(r.area()); // Output: 50
+
+  r.length = 15; // updating length using setter
+  r.width = 7; // updating width using setter
+  print(r.area()); // Output: 105
+
+  r.length = -4; // shows error message
+}
 
 // Q6: Create a class LibraryBook with private fields _title and _isIssued.
 // - Add methods issueBook() and returnBook().
@@ -188,7 +230,48 @@ class Employee {
 // book.issueBook();
 // print(book.isIssued); // Output: true
 
+class LibraryBook {
+  String _title;
+  bool _isIssued = false; // default: not issued
 
+  // constructor
+  LibraryBook(this._title);
+
+  // method to issue book
+  void issueBook() {
+    if (_isIssued) {
+      print("Book '$_title' is already issued.");
+    } else {
+      _isIssued = true;
+      print("Book '$_title' has been issued.");
+    }
+  }
+
+  // method to return book
+  void returnBook() {
+    if (!_isIssued) {
+      print("Book '$_title' was not issued.");
+    } else {
+      _isIssued = false;
+      print("Book '$_title' has been returned.");
+    }
+  }
+
+  // getter to check if book is issued
+  bool get isIssued => _isIssued;
+}
+
+void main6() {
+  var book = LibraryBook("Flutter Basics");
+
+  book.issueBook(); // Book 'Flutter Basics' has been issued.
+  print(book.isIssued); // Output: true
+
+  book.returnBook(); // Book 'Flutter Basics' has been returned.
+  print(book.isIssued); // Output: false
+
+  book.returnBook(); // Trying to return again → shows warning
+}
 
 
 // -------------------------- Advanced Level --------------------------------
