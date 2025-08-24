@@ -196,7 +196,6 @@ void main5() {
   acc.withdraw(1000); // Allowed, can even go negative
 }
 
-
 // ---------------------- Advanced Level --------------------------
 
 // Q6: Abstract Classes
@@ -206,6 +205,53 @@ void main5() {
 // Implement calculateSalary() differently for each.
 // Demonstrate polymorphism with a list of Employees.
 
+// Abstract class
+abstract class Employee {
+  String name;
+
+  Employee(this.name);
+
+  // Abstract method
+  double calculateSalary();
+}
+
+// Full time employee
+class FullTimeEmployee extends Employee {
+  double monthlySalary;
+
+  FullTimeEmployee(String name, this.monthlySalary) : super(name);
+
+  @override
+  double calculateSalary() {
+    return monthlySalary;
+  }
+}
+
+// Part time employee
+class PartTimeEmployee extends Employee {
+  double hourlyRate;
+  int hoursWorked;
+
+  PartTimeEmployee(String name, this.hourlyRate, this.hoursWorked)
+    : super(name);
+
+  @override
+  double calculateSalary() {
+    return hourlyRate * hoursWorked; // Pay depends on hours
+  }
+}
+
+void main6() {
+  // Polymorphism: Employee reference can hold both types
+  List<Employee> employees = [
+    FullTimeEmployee("Hassan", 50000),
+    PartTimeEmployee("Ali", 500, 80),
+  ];
+
+  for (var emp in employees) {
+    print("${emp.name} earns: ${emp.calculateSalary()}");
+  }
+}
 
 // Q7: Interfaces and Multiple Inheritance
 
