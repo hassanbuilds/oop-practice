@@ -9,8 +9,6 @@
 // p.name = "Hassan";
 // print(p.name);  // Output: Hassan
 
-import 'dart:ffi';
-
 class Person {
   String? _name; // private field, nullable
 
