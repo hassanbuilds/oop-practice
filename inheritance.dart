@@ -259,3 +259,33 @@ void main6() {
 // Create an interface Swimmable with method swim().
 // Create a class Duck that implements both Flyable and Swimmable.
 // Show how Duck can both fly and swim.
+
+// Interface Flyable
+abstract class Flyable {
+  void fly();
+}
+
+// Interface Swimmable
+abstract class Swimmable {
+  void swim();
+}
+
+// Class Duck implements both interfaces
+class Duck implements Flyable, Swimmable {
+  @override
+  void fly() {
+    print("Duck is flying in the sky ");
+  }
+
+  @override
+  void swim() {
+    print("Duck is swimming in the pond ");
+  }
+}
+
+// Main function
+void main7() {
+  Duck myDuck = Duck();
+  myDuck.fly(); // Shows flying ability
+  myDuck.swim(); // Shows swimming ability
+}
