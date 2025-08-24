@@ -143,12 +143,78 @@ void main4() {
 // Q5: Create an interface Drawable with method draw().
 // - Create classes Circle, Rectangle, and Triangle that implement Drawable.
 // - In main(), store them in a list of Drawable and call draw() for each.
+abstract class Drawble {
+  void draw();
+}
 
+class Circle implements Drawble {
+  @override
+  void draw() {
+    print('Drawing a Circle');
+  }
+}
 
+class Rectangle implements Drawble {
+  @override
+  void draw() {
+    print('Drawing a Rectangle');
+  }
+}
 
+class Triangle implements Drawble {
+  void draw() {
+    print('Drawing a Triangle');
+  }
+}
 
+void main5() {
+  List<Drawble> shapes = [Circle(), Rectangle(), Triangle()];
+  // Call draw() for each shape
+  for (var shape in shapes) {
+    shape.draw();
+  }
+}
 
-// Q6: Create interfaces Depositable (deposit(double amount)) 
+// Q6: Create interfaces Depositable (deposit(double amount))
 // and Withdrawable (withdraw(double amount)).
 // - Create a class BankAccount that implements both.
 // - In main(), perform deposits and withdrawals on the account.
+
+abstract class Depositable {
+  void deposit(double amount);
+}
+
+abstract class WithDrawable {
+  void deposit(double amount);
+}
+
+class BankAccount implements Depositable, WithDrawable {
+  double _balance = 0; // private balance field
+
+  @override
+  void deposit(double amount) {
+    if (amount > 0) {
+      _balance += amount;
+      print("Deposited: $amount, New Balance: $_balance");
+    } else {
+      print("Deposit amount must be positive!");
+    }
+  }
+
+  void withdraw(double amount) {
+    if (amount > 0 && amount <= _balance) {
+      _balance -= amount;
+      print("Withdrawn: $amount, New Balance: $_balance");
+    } else {
+      print("Insufficient balance or invalid amount!");
+    }
+  }
+}
+
+void main6() {
+  BankAccount account = BankAccount();
+
+  account.deposit(1000); // Deposited: 1000, New Balance: 1000
+  account.withdraw(500); // Withdrawn: 500, New Balance: 500
+  account.withdraw(700); // Insufficient balance
+}
