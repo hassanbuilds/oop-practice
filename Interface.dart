@@ -3,7 +3,33 @@
 // - Create classes InkjetPrinter and LaserPrinter that implement Printer.
 // - In main(), create objects of both and call printData().
 
+abstract class Printer {
+  void printData();
+}
 
+// InkjetPrinter
+class InkjetPrinter implements Printer {
+  @override
+  void printData() {
+    print('Printing using Inkjet Printer...');
+  }
+}
+
+// LaserPrinter
+class LaserPrinter implements Printer {
+  @override
+  void printData() {
+    print('Printing using Laser Printer...');
+  }
+}
+
+void main() {
+  Printer printer1 = InkjetPrinter(); // ✅ Object of InkjetPrinter
+  printer1.printData();
+
+  Printer printer2 = LaserPrinter(); // ✅ Object of LaserPrinter
+  printer2.printData();
+}
 
 
 // Q2: Create an interface Vehicle with methods start() and stop().
