@@ -31,11 +31,48 @@ void main() {
   printer2.printData();
 }
 
-
 // Q2: Create an interface Vehicle with methods start() and stop().
 // - Create classes Car and Bike that implement Vehicle.
 // - In main(), call start() and stop() for both vehicles.
 
+abstract class Vechile {
+  void start();
+  void stop();
+}
+
+class Car implements Vechile {
+  @override
+  void start() {
+    print('Car engine turn on');
+  }
+
+  @override
+  void stop() {
+    print('Car engine turn off');
+  }
+}
+
+class Bike implements Vechile {
+  @override
+  void start() {
+    print('Bike engine turn on');
+  }
+
+  @override
+  void stop() {
+    print('Bike engine turn off');
+  }
+}
+
+void main2() {
+  Vechile car = Car();
+  car.start();
+  car.stop();
+
+  Vechile bike = Bike();
+  bike.start();
+  bike.stop();
+}
 
 //---------------------- Intermediate Level (Interfaces + Multiple Implements) ----------------------
 
@@ -44,14 +81,63 @@ void main() {
 // - Create a class Smartphone that implements both Camera and MusicPlayer.
 // - In main(), create a Smartphone object and call both methods.
 
+abstract class Camera {
+  void takePhoto();
+}
 
+// Music player Interface
+abstract class MusicPlayer {
+  void playMusic();
+}
 
+// Smartphone implements both interfaces
+class SmartPhone implements Camera, MusicPlayer {
+  @override
+  void takePhoto() {
+    print('Smartphone is taking photo');
+  }
 
+  @override
+  void playMusic() {
+    print('Smartphone is playing Music');
+  }
+}
+
+void main3() {
+  SmartPhone myphone = SmartPhone();
+  myphone.takePhoto(); // form camera interface
+  myphone.playMusic(); // from music interface
+}
 
 // Q4: Create an interface Payment with method pay(double amount).
 // - Create classes CreditCard and PayPal that implement Payment.
 // - In main(), process payments using both classes.
 
+abstract class Payement {
+  void pay(double amount);
+}
+
+class CreditCard implements Payement {
+  @override
+  void pay(double amount) {
+    print('Paid RS. $amount using credit card');
+  }
+}
+
+class PayPal implements Payement {
+  @override
+  void pay(double amount) {
+    print('Paid RS. $amount using PayPal');
+  }
+}
+
+void main4() {
+  Payement payement1 = CreditCard();
+  payement1.pay(500011.0);
+
+  Payement payement2 = PayPal();
+  payement2.pay(15015.12);
+}
 
 //---------------------- Advanced Level (Interfaces + Polymorphism + Real Example) ---------------------
 // Q5: Create an interface Drawable with method draw().
