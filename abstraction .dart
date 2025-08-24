@@ -68,7 +68,6 @@ void main2() {
   }
 }
 
-
 //--------------------------Intermediate level ---------------------------
 
 // Q3: Create an abstract class Payment with:
@@ -79,10 +78,42 @@ void main2() {
 // - Implement processPayment() in both classes.
 // - In main(), create a list of Payment objects and process payments polymorphically.
 
+abstract class Payment {
+  void processPayment(double amount);
 
+  void showReceipt() {
+    print("Payment completed.");
+  }
+}
 
+class CreditCardPayment extends Payment {
+  @override
+  void processPayment(double amount) {
+    print("Processing Credit Card Payment of \$${amount}");
+    showReceipt();
+  }
+}
 
+class PayPalPayment extends Payment {
+  @override
+  void processPayment(double amount) {
+    print("Processing PayPal Payment of \$${amount}");
+    showReceipt();
+  }
+}
 
+void main3() {
+  List<Payment> payments = [CreditCardPayment(), PayPalPayment()];
+
+  for (var p in payments) {
+    p.processPayment(200);
+  }
+}
+
+// output:    Processing the credit card payment of $200
+// output: Payment completed
+//output:  Processing PayPal payment of $200
+//output:  Payment completed
 
 // Q4: Create an abstract class Employee with:
 // - An abstract method calculateSalary().
@@ -93,7 +124,42 @@ void main2() {
 // - PartTimeEmployee: salary = hoursWorked * hourlyRate
 // - In main(), calculate salary for both employees.
 
+abstract class Employee {
+  void calculateSalary();
 
+  void showRole(String role) {
+    print('role $role');
+  }
+}
+
+class FullTimeEmployee extends Employee {
+  double monthlySalary;
+  FullTimeEmployee(this.monthlySalary);
+  @override
+  void calculateSalary() {
+    showRole('Full time employee');
+    print('Salary: \$${monthlySalary}');
+  }
+}
+
+class PartTimeEmployee extends Employee {
+  int hoursWorked;
+  double hourlyRate;
+  PartTimeEmployee(this.hoursWorked, this.hourlyRate);
+  @override
+  void calculateSalary() {
+    showRole('Part time employee');
+    print('Salary: \$${hourlyRate * hourlyRate}');
+  }
+}
+
+void main4() {
+  Employee employee = FullTimeEmployee(500000);
+  Employee employee2 = PartTimeEmployee(89, 500);
+
+  employee.calculateSalary();
+  employee2.calculateSalary();
+}
 
 // ------------------------- Advance level ------------------------------------
 
@@ -107,12 +173,6 @@ void main2() {
 //
 // Create a TransportFactory class that returns a Transport object (bus, car, airplane).
 // In main(), choose a transport type, book a ticket, and calculate fare.
-
-
-
-
-
-
 
 // Q6: Create an abstract class Account with:
 // - abstract method deposit(double amount)
