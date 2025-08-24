@@ -5,14 +5,68 @@
 // - Implement area() and perimeter() in both classes.
 // - In main(), create objects of Circle and Rectangle and print their area & perimeter.
 
+abstract class Shape {
+  double area();
+  double perimeter();
+}
 
+class Circle extends Shape {
+  double radius;
+  Circle(this.radius);
+
+  @override
+  double area() => 3.542 * radius * radius;
+
+  @override
+  double perimeter() => 2 * 3.542 * radius;
+}
+
+class Rectangle extends Shape {
+  double width, height;
+  Rectangle(this.width, this.height);
+
+  @override
+  double area() => width * height;
+
+  @override
+  double perimeter() => 2 * (width + height);
+}
+
+void main() {
+  Shape circle = Circle(5);
+  Shape radius = Rectangle(4, 6);
+
+  print("Circle -> Area: ${circle.area()}, Perimeter: ${circle.perimeter()}");
+  print(
+    "Rectangle -> Area: ${radius.area()}, Perimeter: ${radius.perimeter()}",
+  );
+}
 
 // Q2: Create an abstract class Animal with abstract method sound().
 // - Create classes Dog and Cat that extend Animal.
 // - Implement sound() in both classes.
 // - In main(), create a list of animals and call sound() for each.
 
+abstract class Animal {
+  void sound() {}
+}
 
+class Dog extends Animal {
+  @override
+  void sound() => print('Dog says: Woof Woof!');
+}
+
+class Cat extends Animal {
+  @override
+  void sound() => print('Cat says: Meow Meow!!');
+}
+
+void main2() {
+  List<Animal> animals = [Dog(), Cat()];
+  for (var a in animals) {
+    a.sound();
+  }
+}
 
 
 //--------------------------Intermediate level ---------------------------
