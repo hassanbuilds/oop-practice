@@ -3,14 +3,42 @@
 // - Write a function move() that prints "Moving <direction>".
 // - In main(), call move() with two different directions.
 
+enum Direction { north, south, east, west }
 
+// create a function that takes Direction as a parameter
+void move(Direction direction) {
+  print('Moving statement');
+}
 
+// use fuction in main
+void mian() {
+  move(Direction.north);
+  move(Direction.south);
+}
 
 // Q2: Create an enum Season with values spring, summer, autumn, winter.
 // - Write a function getSeasonActivity() that returns an activity for each season.
 // - Use switch-case inside the function.
 // - In main(), print activity for Season.summer.
 
+enum Season { spring, summer, autumn, winter }
+
+String getSeasonActivity(Season season) {
+  switch (season) {
+    case Season.spring:
+      return "Enjoy the blommimg flowers";
+    case Season.summer:
+      return "Go to the beach and enjoy";
+    case Season.autumn:
+      return "Collect falling leave";
+    case Season.winter:
+      return "Build snowman";
+  }
+}
+
+void main2() {
+  print(getSeasonActivity(Season.winter));
+}
 
 // ------------------- Intermediate Level --------------------------------
 
