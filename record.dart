@@ -43,5 +43,12 @@ void main3() {
 // Q4: Create a list of records representing students: (String name, int marks).
 // Print the name of the student with the highest marks.
 
-// Q5: Write a function calculate((double x, double y)) that returns a record (sum, product, average).
-// Example: (4, 6) → (10, 24, 5.0).
+void main4() {
+  // Create a list of records (name, marks)
+  var students = [('Ali', 85), ('Hassan', 92), ('Usman', 76), ('Ayesha', 95)];
+
+  // Find the student with the highest marks
+  var topStudent = students.reduce((a, b) => a.$2 > b.$2 ? a : b);
+
+  print("Top Student: ${topStudent.$1}, Marks: ${topStudent.$2}");
+}
