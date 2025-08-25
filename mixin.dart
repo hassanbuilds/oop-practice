@@ -4,8 +4,6 @@
 // - Create a class FileManager that uses Logger.
 // - In main(), create FileManager and call log().
 
-import 'dart:ffi';
-
 mixin Logger {
   void log(String message) {
     print('Log: $message');
