@@ -100,19 +100,69 @@ void main4() {
 }
 //------------------------- Advanced Level  ---------------------------------
 
-
-
-
 // Q5: Create an enum Role { admin, editor, viewer }.
 // - Create a class User with fields: name and role.
 // - Add a method permissions() that prints permissions based on role.
 // - In main(), create 3 users with different roles and show their permissions.
 
+enum Role { admin, editor, viewer }
 
+class User {
+  String name;
+  Role role;
 
+  User(this.name, this.role);
 
+  void permissions() {
+    switch (role) {
+      case Role.admin:
+        print(
+          "$name (Admin): Full access to manage users, content, and settings.",
+        );
+        break;
+      case Role.editor:
+        print(
+          "$name (Editor): Can edit and publish content, but no admin rights.",
+        );
+        break;
+      case Role.viewer:
+        print("$name (Viewer): Can only view content.");
+        break;
+    }
+  }
+}
 
+void main5() {
+  var user1 = User("Ali", Role.admin);
+  var user2 = User("Sara", Role.editor);
+  var user3 = User("Bilal", Role.viewer);
+
+  user1.permissions();
+  user2.permissions();
+  user3.permissions();
+}
 
 // Q6: Create an enum TrafficLight { red, yellow, green } with an extension.
 // - Add a method action() inside the extension that returns "Stop", "Wait", or "Go".
 // - In main(), call action() for each traffic light value using a loop.
+
+enum TrafficLight { red, yellow, green }
+
+extension TrafficLightAction on TrafficLight {
+  String action() {
+    switch (this) {
+      case TrafficLight.red:
+        return "Stop";
+      case TrafficLight.yellow:
+        return "Wait";
+      case TrafficLight.green:
+        return "Go";
+    }
+  }
+}
+
+void main6() {
+  for (var light in TrafficLight.values) {
+    print("${light.name.toUpperCase()}: ${light.action()}");
+  }
+}
