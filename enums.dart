@@ -55,16 +55,16 @@ enum OrderStatus { pending, processing, shipped, delivered }
 void checkStatus(OrderStatus status) {
   switch (status) {
     case OrderStatus.pending:
-      print("✅ Order received. Waiting for confirmation.");
+      print(" Order received. Waiting for confirmation.");
       break;
     case OrderStatus.processing:
-      print("🛠️ Order is being prepared.");
+      print(" Order is being prepared.");
       break;
     case OrderStatus.shipped:
-      print("📦 Order has been shipped.");
+      print(" Order has been shipped.");
       break;
     case OrderStatus.delivered:
-      print("🎉 Order delivered! Enjoy.");
+      print(" Order delivered! Enjoy.");
       break;
   }
 }
