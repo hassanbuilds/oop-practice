@@ -1,4 +1,4 @@
-<h1 align="center"> Dart OOP Practice</h1>
+<h1 align="center"> ⚡ Dart OOP Practice</h1>
 
 <p align="center">
   A comprehensive collection of <b>Object-Oriented Programming (OOP) practice examples in Dart</b>.<br/>
