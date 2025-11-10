@@ -49,7 +49,7 @@
 <h2>📌 Notes</h2>
 <p>
 This repo is a <b>practice and learning ground</b> — not a production app.  
-It can serve as:
+It can serve as
 </p>
 <ul>
   <li>A <b>study resource</b> for beginners learning OOP in Dart.</li>
