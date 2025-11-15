@@ -1,5 +1,3 @@
-// -------------------- Basic Example --------------------------
-
 // ------------------ Basic Example 1 ------------------
 // Q1: Create a class Person with fields: name and age.
 // Add a method introduce() that prints "Hi, my name is <name> and I am <age> years old".
