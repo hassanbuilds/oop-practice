@@ -24,10 +24,10 @@ class LaserPrinter implements Printer {
 }
 
 void main() {
-  Printer printer1 = InkjetPrinter(); // ✅ Object of InkjetPrinter
+  Printer printer1 = InkjetPrinter(); //  Object of InkjetPrinter
   printer1.printData();
 
-  Printer printer2 = LaserPrinter(); // ✅ Object of LaserPrinter
+  Printer printer2 = LaserPrinter(); //  Object of LaserPrinter
   printer2.printData();
 }
 
