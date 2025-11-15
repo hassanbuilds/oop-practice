@@ -20,7 +20,7 @@ class Person {
 
 // ------------------ Basic Example 2 ------------------
 // Q2: Create a class Dog with fields: name and breed.
-// Add a method bark() that prints "<name> is barking 🐶".
+// Add a method bark() that prints "<name> is barking ".
 //
 // Example: Dog("Tommy", "Bulldog").bark();
 
