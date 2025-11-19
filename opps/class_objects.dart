@@ -39,8 +39,6 @@ class Dog {
   }
 }
 
-//------------------- Intermediate Level ---------------------------
-
 // ------------------ Intermediate Example 1 ------------------
 // Q1: Create a class Student with fields: name (String), rollNo (int), and grade (nullable String).
 // Add a method showDetails() that prints student info.
@@ -110,8 +108,6 @@ void main4() {
   user2.deposit(22021);
   user2.withdraw(10000);
 }
-
-//----------------- Advanced Level-------------------------
 
 // ------------------ Advanced Example 1 ------------------
 // Q1: Create a class Car with fields: brand, model, year (nullable int).
