@@ -115,6 +115,8 @@ void main3() {
 //output:  Processing PayPal payment of $200
 //output:  Payment completed
 
+// -------------------------------------------------------
+
 // Q4: Create an abstract class Employee with:
 // - An abstract method calculateSalary().
 // - A normal method showRole() that prints role.
